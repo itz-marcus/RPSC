@@ -1,10 +1,7 @@
-from flask import Flask,render_template
+
 import random
 
-app=Flask(__name__)
-@app.route('/')
-def game():
-    return render_template('game.html')
+
 
 def update_leaderboard(result, leaderboard):
     if result == "win":
@@ -13,8 +10,8 @@ def update_leaderboard(result, leaderboard):
         leaderboard["win_streak"] = 0
 
 def display_leaderboard(leaderboard):
-    print("\nLeaderboard:")
-    print(f"Current Win Streak: {leaderboard['win_streak']}\n")
+    leaderboard['win_streak']
+    # leaderboard_front = leaderboard
 
 options = ("rock", "paper", "scissors")
 running = True
@@ -54,5 +51,5 @@ while running:
         running = False
 
 print("Thanks for playing ," , name , "!")
-if __name__ == "__main__":
- app.run(debug=True)
+
+
