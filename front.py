@@ -7,8 +7,12 @@ options = ("rock", "paper", "scissors")
 leaderboard = {"win_streak": 0}
 
 @app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/game")
 def index():
-    return render_template("index.html", leaderboard_front=leaderboard["win_streak"])
+    return render_template("game.html", leaderboard_front=leaderboard["win_streak"])
 
 @app.route("/play", methods=["POST"])
 def play():

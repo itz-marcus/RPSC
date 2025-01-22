@@ -3,52 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
-
-    <span>Choose your option:</span>
+    <h1>Rock, paper, scissors COMBO</h1>
     <br>
-    <button onclick="play('rock')">Rock</button>
-    <button onclick="play('paper')">Paper</button>
-    <button onclick="play('scissors')">Scissors</button>
-    <br><br>
-
-    <span>Your choice:</span>
-    <span id="result_player"></span>
-    <br>
-    <span>Computer's choice:</span>
-    <span id="result_comp"></span>
-    <br>
-    <span>Outcome:</span>
-    <span id="outcome"></span>
-    <br><br>
-    <span>Your win streak:</span>
-    <span id="win_streak">{{ leaderboard_front }}</span>
-    <br><br>
-
-    <script>
-        async function play(choice) {
-            const response = await fetch('/play', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ choice })
-            });
-
-            if (response.ok) {
-                const data = await response.json();
-                document.getElementById("result_player").innerText = data.player_choice;
-                document.getElementById("result_comp").innerText = data.computer_choice;
-                document.getElementById("outcome").innerText = data.result === "win" ? "You win!" : 
-                                                               data.result === "loss" ? "You lose!" : 
-                                                               "It's a tie!";
-                document.getElementById("win_streak").innerText = data.win_streak;
-            } else {
-                const error = await response.json();
-                alert(error.error || "An error occurred");
-            }
-        }
-    </script>
+    <a href="/game"> <button> Start game </button> </a>
 </body>
 </html>
