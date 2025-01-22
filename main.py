@@ -1,7 +1,4 @@
-
 import random
-
-
 
 def update_leaderboard(result, leaderboard):
     if result == "win":
@@ -9,47 +6,15 @@ def update_leaderboard(result, leaderboard):
     else:
         leaderboard["win_streak"] = 0
 
-def display_leaderboard(leaderboard):
-    leaderboard['win_streak']
-    # leaderboard_front = leaderboard
-
-options = ("rock", "paper", "scissors")
-running = True
-leaderboard = {"win_streak": 0}
-name = input('Enter your name : ')
-
-while running:
-
-    player = None
-    computer = random.choice(options)
-
-    while player not in options:
-        player = input("Enter a choice (rock, paper, scissors): ")
-
-    print(f"Player: {player}")
-    print(f"Computer: {computer}")
-
+def determine_winner(player, computer):
     if player == computer:
-        print("It's a tie!")
-        update_leaderboard("tie", leaderboard)
-    elif player == "rock" and computer == "scissors":
-        print("You win!")
-        update_leaderboard("win", leaderboard)
-    elif player == "paper" and computer == "rock":
-        print("You win!")
-        update_leaderboard("win", leaderboard)
-    elif player == "scissors" and computer == "paper":
-        print("You win!")
-        update_leaderboard("win", leaderboard)
+        return "tie"
+    elif (player == "rock" and computer == "scissors") or \
+         (player == "paper" and computer == "rock") or \
+         (player == "scissors" and computer == "paper"):
+        return "win"
     else:
-        print("You lose!")
-        update_leaderboard("loss", leaderboard)
+        return "loss"
 
-    display_leaderboard(leaderboard)
-
-    if not input("Play again? (y/n): ").lower() == "y":
-        running = False
-
-print("Thanks for playing ," , name , "!")
-
-
+def get_computer_choice(options):
+    return random.choice(options)
