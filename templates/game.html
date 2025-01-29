@@ -8,27 +8,46 @@
 <body>
     <h1>Rock, Paper, Scissors</h1>
 
-    <span>Choose your option:</span>
-    <br>
+    <span>Choose your option:</span><br>
     <button onclick="play('rock')">Rock</button>
     <button onclick="play('paper')">Paper</button>
     <button onclick="play('scissors')">Scissors</button>
     <br><br>
 
-    <span>Your choice:</span>
-    <span id="result_player"></span>
-    <br>
-    <span>Computer's choice:</span>
-    <span id="result_comp"></span>
-    <br>
-    <span>Outcome:</span>
-    <span id="outcome"></span>
-    <br><br>
-    <span>Your win streak:</span>
-    <span id="win_streak">{{ leaderboard_front }}</span>
-    <br><br>
+    <span>Your choice:</span> <span id="result_player"></span><br>
+    <span>Computer's choice:</span> <span id="result_comp"></span><br>
+    <span>Outcome:</span> <span id="outcome"></span><br><br>
+    <span>Your win streak:</span> <span id="win_streak">{{ leaderboard_front }}</span><br><br>
+
+    <h2>Leaderboard</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard_body">
+            {% for name, score in top_scores %}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ score }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Popup for saving name -->
+    <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid black;">
+        <h3>Enter your name</h3>
+        <input type="text" id="player_name" placeholder="Your name">
+        <button onclick="saveScore()">Save</button>
+        <button onclick="cancelSave()">Cancel</button>
+    </div>
 
     <script>
+        let streakToSave = 0;
+
         async function play(choice) {
             const response = await fetch('/play', {
                 method: 'POST',
@@ -44,10 +63,51 @@
                                                                data.result === "loss" ? "You lose!" : 
                                                                "It's a tie!";
                 document.getElementById("win_streak").innerText = data.win_streak;
+
+                if (data.save_score) {
+                    streakToSave = data.save_score;
+                    document.getElementById("popup").style.display = "block";
+                }
+
+                updateLeaderboard(data.top_scores);
             } else {
-                const error = await response.json();
-                alert(error.error || "An error occurred");
+                alert("An error occurred");
             }
+        }
+
+        async function saveScore() {
+            const name = document.getElementById("player_name").value;
+            if (!name) {
+                alert("Please enter a name.");
+                return;
+            }
+
+            const response = await fetch('/save_score', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, score: streakToSave })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                updateLeaderboard(data.top_scores);
+                document.getElementById("popup").style.display = "none";
+            } else {
+                alert("Error saving score");
+            }
+        }
+
+        function cancelSave() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function updateLeaderboard(scores) {
+            const leaderboardBody = document.getElementById("leaderboard_body");
+            leaderboardBody.innerHTML = "";
+            scores.forEach(([name, score]) => {
+                const row = `<tr><td>${name}</td><td>${score}</td></tr>`;
+                leaderboardBody.innerHTML += row;
+            });
         }
     </script>
 </body>
