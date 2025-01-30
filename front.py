@@ -25,19 +25,20 @@ def play():
     computer_choice = get_computer_choice(options)
     result = determine_winner(player_choice, computer_choice)
 
+    # If it's a tie, just return the result without resetting the streak
+    if result == "tie":
+        return jsonify({
+            "player_choice": player_choice,
+            "computer_choice": computer_choice,
+            "result": result,
+            "win_streak": leaderboard["win_streak"]
+        })
+
     previous_streak = leaderboard["win_streak"]
     update_leaderboard(result, leaderboard)
 
     # If the player loses and had a win streak, prompt for name and save
     if result == "loss" and previous_streak > 0:
-        return jsonify({
-            "player_choice": player_choice,
-            "computer_choice": computer_choice,
-            "result": result,
-            "win_streak": leaderboard["win_streak"],
-            "save_score": previous_streak
-        })
-    if result == "tie" and previous_streak > 0:
         return jsonify({
             "player_choice": player_choice,
             "computer_choice": computer_choice,
@@ -54,7 +55,7 @@ def play():
         "win_streak": leaderboard["win_streak"],
         "top_scores": top_scores
     })
-
+    
 @app.route("/save_score", methods=["POST"])
 def save_score():
     name = request.json.get("name")

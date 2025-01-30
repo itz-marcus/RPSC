@@ -6,12 +6,11 @@ body{
     overflow: hidden;
     background-position: center;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 100vh;
     color: white;
 }
 
 .block{
-    display: flex;
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
@@ -27,7 +26,7 @@ body{
 }
 .logo{
     object-fit: contain;
-    width: 35vw;
+    width: 36vw;
 }
 .last-section{
     display: flex;
@@ -133,18 +132,18 @@ body{
     align-items: center;
 }
 .LB {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    width: 100%;
+    justify-content: space-between;
+    display: flex;
 }
 .menu img{
     width: 50px;
+    margin-left: 50px;
     cursor: pointer;
 }
 .board img{
     width: 45px;
-    margin-left: 1480px;
-    margin-top: -800px;
+    margin-right: 50px;
+    margin-top: 50px;
 }
 .first-section-option{
     background-image: url('https://github.com/candice-dk3/python-images/blob/main/indexText.png?raw=true');
@@ -214,10 +213,10 @@ body{
     z-index: 20;
 }
 .modal-content {
-    background-color: #fff;
+    background-color: #421d53;
+    border: 5px solid rgb(255, 255, 255);
     padding: 20px;
-    border-radius: 27px;
-    width: 400px;
+    width: 300px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease;
