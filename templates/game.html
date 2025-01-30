@@ -11,9 +11,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Rock, Paper, Scissors</h1>
 
-    <span > <h4 class="choose">Choose your option:</h4> </span><br>
+
+    
+    <span>Your choice:</span> <span id="result_player"></span><br>
+    <span>Computer's choice:</span> <span id="result_comp"></span><br>
+    <span>Outcome:</span> <span id="outcome"></span><br><br>
+    <span>Your win streak:</span> <span id="win_streak">{{ leaderboard_front }}</span>
+    <br><br>
+    
+   
+    
+    <div class='hands_right'>  
+        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_r.png" id="hand_rock" class="hand_r">
+        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_p.png" id="hand_paper" class="hand_p">
+        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_s.png" id="hand_scissors" class="hand_s">
+    </div>
+    
+</div>
+    <br><br>
+    <span > <h4 class="choose">Choose your option</h4> </span><br>
     <div class="list">
         <button onclick="play('rock')">
             <img src="https://github.com/candice-dk3/python-images/blob/main/buttonRock.png?raw=true" alt="" class="rock">
@@ -25,13 +42,6 @@
             <img src="https://github.com/candice-dk3/python-images/blob/main/buttonScissors.png?raw=true" alt="" class="scissor">
         </button>
     </div>
-    <br><br>
-
-    <span>Your choice:</span> <span id="result_player"></span><br>
-    <span>Computer's choice:</span> <span id="result_comp"></span><br>
-    <span>Outcome:</span> <span id="outcome"></span><br><br>
-    <span>Your win streak:</span> <span id="win_streak">{{ leaderboard_front }}</span><br><br>
-
     <h2>Leaderboard</h2>
     <table border="1">
         <thead>
@@ -49,7 +59,6 @@
             {% endfor %}
         </tbody>
     </table>
-
     <!-- Popup for saving name -->
     <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid black;">
         <h3>Enter your name</h3>
@@ -122,6 +131,7 @@
                 leaderboardBody.innerHTML += row;
             });
         }
+        
     </script>
 </body>
 </html>

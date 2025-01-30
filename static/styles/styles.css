@@ -181,6 +181,21 @@ body{
     background-color: transparent;
     border: none;
 }
+.hands_right{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    place-items: center;
+}
+.hand_r{
+    grid-area: 1 / 1;
+}
+.hand_p{
+    grid-area: 1 / 1;
+}
+.hand_s{
+    grid-area: 1 / 1;
+}
 .rock{
     cursor: pointer;
     position: relative;
@@ -216,7 +231,7 @@ body{
     background-color: #421d53;
     border: 5px solid rgb(255, 255, 255);
     padding: 20px;
-    width: 300px;
+    width:150px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.3s ease;
@@ -299,6 +314,7 @@ body{
 }
 .list img{
     cursor: pointer;
+
 }
 .container4 h1{
     color: #fff;
