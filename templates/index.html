@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors Combo|Home</title>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <script type="text/javascript" src="/static/javascript/modal.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Rock, paper, scissors COMBO</h1>
-    <br>
+    <audio id='BGM' autoplay loop >
+        <source src="https://itz-marcus.github.io/Hosted-Images-/bg_music.mp3" type="audio/mpeg">
+        <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
 
-    <a href="/game"> <button> Start game </button> </a>
+    <section class="inner-section">
+        <div class="LB">
+            <button id="openModal" class="menu"><img src="https://github.com/candice-dk3/python-images/blob/main/menu.png?raw=true" alt=""></button>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <a href="/"><img src="https://github.com/candice-dk3/python-images/blob/main/home.png?raw=true" alt=""></a>
+                    <img src="https://github.com/candice-dk3/python-images/blob/main/pause.png?raw=true" alt="" class="close">
+                    <a href="/profile"><img src="https://github.com/candice-dk3/python-images/blob/main/user.png?raw=true" alt=""></a>
+                    <a href="/"><img src="https://github.com/candice-dk3/python-images/blob/main/exit.png?raw=true" alt=""></a>
+                </div>
+              </div>
+            <a href="/leaderBoard" class="board"><img src="https://github.com/candice-dk3/python-images/blob/main/trophy.png?raw=true" alt=""></a>
+        </div>
+        <div class="block">
+            <div class="first-section">
+                <img class="logo" src="https://github.com/candice-dk3/python-images/blob/main/indexText.png?raw=true" alt="">
+            </div>
+            <div class="last-section">
+                <a href="/game"><button type="submit">Start</button></a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

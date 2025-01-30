@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for, redirect
 from main import update_leaderboard, determine_winner, get_computer_choice
 from leaderboard import add_score, get_top_scores
 
@@ -30,6 +30,14 @@ def play():
 
     # If the player loses and had a win streak, prompt for name and save
     if result == "loss" and previous_streak > 0:
+        return jsonify({
+            "player_choice": player_choice,
+            "computer_choice": computer_choice,
+            "result": result,
+            "win_streak": leaderboard["win_streak"],
+            "save_score": previous_streak
+        })
+    if result == "tie" and previous_streak > 0:
         return jsonify({
             "player_choice": player_choice,
             "computer_choice": computer_choice,

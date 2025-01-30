@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
+    <title>Rock Paper Scissors Combo|Game</title>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+    <script type="text/javascript" src="/static/javascript/modal.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Rock, Paper, Scissors</h1>
@@ -59,8 +64,8 @@
                 const data = await response.json();
                 document.getElementById("result_player").innerText = data.player_choice;
                 document.getElementById("result_comp").innerText = data.computer_choice;
-                document.getElementById("outcome").innerText = data.result === "win" ? "You win!" : 
-                                                               data.result === "loss" ? "You lose!" : 
+                document.getElementById("outcome").innerText = data.result === "win" ? "You win!" :
+                                                               data.result === "loss" ? "You lose!" :
                                                                "It's a tie!";
                 document.getElementById("win_streak").innerText = data.win_streak;
 
