@@ -173,8 +173,8 @@ body{
     height: 30vh;
 }
 .list{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
     /* margin-top: 30px; */
     justify-items: center;
 }
@@ -319,4 +319,8 @@ body{
 }
 .top, .second-thirdPlayers{
     display: flex;
+}
+.choose{
+    display: flex;
+    justify-content: center;
 }

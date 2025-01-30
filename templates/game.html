@@ -13,10 +13,18 @@
 <body>
     <h1>Rock, Paper, Scissors</h1>
 
-    <span>Choose your option:</span><br>
-    <button onclick="play('rock')">Rock</button>
-    <button onclick="play('paper')">Paper</button>
-    <button onclick="play('scissors')">Scissors</button>
+    <span > <h4 class="choose">Choose your option:</h4> </span><br>
+    <div class="list">
+        <button onclick="play('rock')">
+            <img src="https://github.com/candice-dk3/python-images/blob/main/buttonRock.png?raw=true" alt="" class="rock">
+        </button>
+        <button onclick="play('paper')">
+            <img src="https://github.com/candice-dk3/python-images/blob/main/buttonPaper.png?raw=true" alt="" class="paper">
+        </button>
+        <button onclick="play('scissors')">
+            <img src="https://github.com/candice-dk3/python-images/blob/main/buttonScissors.png?raw=true" alt="" class="scissor">
+        </button>
+    </div>
     <br><br>
 
     <span>Your choice:</span> <span id="result_player"></span><br>
