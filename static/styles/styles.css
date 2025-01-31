@@ -1,3 +1,5 @@
+/* index */
+
 body{
     margin: 0;
     font-family: "Press Start 2P", serif;
@@ -52,6 +54,33 @@ body{
 .last-section a{
     text-decoration: none;
 }
+
+.board img{
+    width: 45px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+.LB {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:850px){
+    .logo{
+        width: 300px;
+    }
+    .LB{
+
+    }
+    .board img{
+        width: 45px;
+        margin-right: 20px;
+        margin-top: 0px;
+    }
+}
+
+
+/* Game */
 .logIn-section{
     display: flex;
     justify-content: center;
@@ -131,10 +160,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-.LB {
-    justify-content: space-between;
-    display: flex;
-}
+
 .menu img{
     width: 50px;
     margin-left: 50px;
@@ -351,6 +377,8 @@ body{
     margin-left: 600px;
     font-size: 20px;
 }
+
+/* leaderboard */
 #MrBoss{
     display: flex;
     justify-content: center;
@@ -370,4 +398,18 @@ table{
     width: 400px;
     border: 2px solid #2B0F54;
     background-color: #AB1F65;
+}
+
+@media only screen and (max-width:400px){
+    #MrBoss{
+        margin-top: 60px;
+    }
+    table{
+        width: 350px;
+    }
+}
+@media only screen and (max-width:360px){
+    table{
+        width: 300px;
+    }
 }

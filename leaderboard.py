@@ -32,7 +32,7 @@ def get_top_scores(limit=10):
 def reset_leaderboard():
     conn = sqlite3.connect("leaderboard.db")
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM leaderboard WHERE score = 7")
+    cursor.execute("DELETE from leaderboard WHERE")
     conn.commit()
     conn.close()
 # Initialize database when script runs

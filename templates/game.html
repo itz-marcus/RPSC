@@ -48,7 +48,7 @@
     
 </div>
     <br><br>
-    <span > <h4 class="choose">Choose your option</h4> </span><br>
+    <span > <h4 class="choose">Choose your hand</h4> </span><br>
     <div class="list">
         <button onclick="play('rock')">
             <img src="https://itz-marcus.github.io/Hosted-Images-/Hand_rock.png?raw=true" alt="" class="rock">
@@ -65,7 +65,7 @@
     <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid black;">
         <h3>Enter your name</h3>
         <input type="text" id="player_name" placeholder="Your name">
-        <button onclick="saveScore()">Save</button>
+        <button onclick="save_score()">Save</button>
         <button onclick="cancelSave()">Cancel</button>
     </div>
     
@@ -100,7 +100,7 @@
             }
         }
 
-        async function saveScore() {
+        async function save_score() {
             const name = document.getElementById("player_name").value;
             if (!name) {
                 alert("Please enter a name.");
