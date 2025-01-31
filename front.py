@@ -16,6 +16,11 @@ def index():
     top_scores = get_top_scores()  # Fetch leaderboard
     return render_template("game.html", leaderboard_front=leaderboard["win_streak"], top_scores=top_scores)
 
+@app.route("/leaderboard")
+def leaderboard_page():
+    top_scores = get_top_scores()  # Fetch leaderboard data
+    return render_template("leaderboard.html", top_scores=top_scores)
+
 @app.route("/play", methods=["POST"])
 def play():
     player_choice = request.json.get("choice")

@@ -21,55 +21,27 @@
                     <a href="/"><img src="https://github.com/candice-dk3/python-images/blob/main/exit.png?raw=true" alt=""></a>
                 </div>
               </div>
-              <div>
-                <a href="/leaderboard" class="board"><img src="https://github.com/candice-dk3/python-images/blob/main/trophy.png?raw=true" alt=""></a>
-              </div>
         </div>
     </section>
-    
-    <div class="meep">
-        <span>Your choice:</span> <span id="result_player"></span>
-        <br><br>
-        <span>Computer's choice:</span> <span id="result_comp"></span>
-        <br><br>
-        <span>Outcome:</span> <span id="outcome"></span>
-        <br><br>
-        <span>Your win streak:</span> <span id="win_streak">{{ leaderboard_front }}</span>
-        <br><br>
+    <h2 id="MrBoss">Leaderboard</h2>
+    <div id="Monch"> 
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboard_body">
+                {% for name, score in top_scores %}
+                <tr>
+                    <td>{{ name }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-    
-   
-    
-    <div class='hands_right'>  
-        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_r.png" id="hand_rock" class="hand_r">
-        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_p.png" id="hand_paper" class="hand_p">
-        <img src="https://itz-marcus.github.io/Hosted-Images-/hand_s.png" id="hand_scissors" class="hand_s">
-    </div>
-    
-</div>
-    <br><br>
-    <span > <h4 class="choose">Choose your option</h4> </span><br>
-    <div class="list">
-        <button onclick="play('rock')">
-            <img src="https://itz-marcus.github.io/Hosted-Images-/Hand_rock.png?raw=true" alt="" class="rock">
-        </button>
-        <button onclick="play('paper')">
-            <img src="https://itz-marcus.github.io/Hosted-Images-/Hand_Paper.png?raw=true" alt="" class="paper">
-        </button>
-        <button onclick="play('scissors')">
-            <img src="https://itz-marcus.github.io/Hosted-Images-/Hand_Scissors.png?raw=true" alt="" class="scissor">
-        </button>
-    </div>
-
-    <!-- Popup for saving name -->
-    <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid black;">
-        <h3>Enter your name</h3>
-        <input type="text" id="player_name" placeholder="Your name">
-        <button onclick="saveScore()">Save</button>
-        <button onclick="cancelSave()">Cancel</button>
-    </div>
-    
-
     <script>
         let streakToSave = 0;
 
@@ -136,5 +108,5 @@
         }
         
     </script>
-</body>
+</body
 </html>
