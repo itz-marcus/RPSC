@@ -60,7 +60,7 @@ def play():
         "win_streak": leaderboard["win_streak"],
         "top_scores": top_scores
     })
-    
+
 @app.route("/save_score", methods=["POST"])
 def save_score():
     name = request.json.get("name")

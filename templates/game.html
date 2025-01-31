@@ -11,6 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <audio id='BGM' autoplay loop >
+        <source src="https://itz-marcus.github.io/Hosted-Images-/bg_music.mp3" type="audio/mpeg">
+        <p>If you are reading this, it is because your browser does not support the audio element.</p>
+    </audio>
+    
 
     <section class="inner-section">
         <div class="LB">
@@ -18,7 +23,7 @@
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <a href="/"><img src="https://github.com/candice-dk3/python-images/blob/main/home.png?raw=true" alt=""></a>
-                    <a href="/"><img src="https://github.com/candice-dk3/python-images/blob/main/exit.png?raw=true" alt=""></a>
+                    <a href="/game"><img src="https://github.com/candice-dk3/python-images/blob/main/exit.png?raw=true" alt=""></a>
                 </div>
               </div>
               <div>
@@ -62,11 +67,11 @@
     </div>
 
     <!-- Popup for saving name -->
-    <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; border:1px solid black;">
-        <h3>Enter your name</h3>
+    <div id="popup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); padding:20px; border:1px solid black;">
+        <h3>You lose!! Enter your name</h3>
         <input type="text" id="player_name" placeholder="Your name">
-        <button onclick="save_score()">Save</button>
-        <button onclick="cancelSave()">Cancel</button>
+        <button class='l_button' onclick="save_score()">Save</button>
+        <button class='l_button' onclick="cancelSave()">Close</button>
     </div>
     
 
@@ -112,7 +117,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, score: streakToSave })
             });
-
+            document.getElementById("popup").style.display = "none";
             if (response.ok) {
                 const data = await response.json();
                 updateLeaderboard(data.top_scores);
@@ -134,7 +139,6 @@
                 leaderboardBody.innerHTML += row;
             });
         }
-        
     </script>
 </body>
 </html>

@@ -1,5 +1,4 @@
 /* index */
-
 body{
     margin: 0;
     font-family: "Press Start 2P", serif;
@@ -389,6 +388,29 @@ body{
 }
 #popup{
     color: black;
+    background-color: #AB1F65;
+    width:fit-content;
+    height: fit-content;
+}
+#player_name{
+    width: 350px;
+    height:30px;
+    background-color: #6b0b3b;
+    border: 3px solid white;
+    font-family: "Press Start 2P", serif;
+    color: white;
+}
+.l_button{
+    justify-content: center;
+    width: 70px;
+    height: 35px;
+    border: 3px solid #fff;
+    background-color: #FF3700;
+    font-family: 'Press Start 2P';
+    font-size: 10px;
+    font-weight: 400;
+    color: #fff;
+    margin-top: -160px;  
 }
 
 table{
